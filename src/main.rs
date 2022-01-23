@@ -1,4 +1,3 @@
-#![feature(drain_filter)]
 use std::io;
 use std::sync::mpsc;
 use std::time::Duration;
@@ -18,13 +17,15 @@ fn main() {
     let mut buffer = String::new();
     loop {
         handler.read_line(&mut buffer).unwrap();
-        let parsed = buffer.split(":").collect::<Vec<&str>>();
-        transmitter
-            .send((
-                parsed[0].parse::<isize>().unwrap(),
-                parsed[1].to_string(),
-                parsed[2].parse::<isize>().unwrap(),
-            ))
-            .unwrap();
+        let parsed = buffer.trim().split(":").collect::<Vec<&str>>();
+        match transmitter.send((
+            parsed[0].parse::<isize>().unwrap(),
+            parsed[1].to_string(),
+            parsed[2].parse::<isize>().unwrap(),
+        )) {
+            Err(x) => println!("Error while communicating with lift: {}", x),
+            Ok(_) => {}
+        }
+        buffer.clear();
     }
 }
