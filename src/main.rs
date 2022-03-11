@@ -18,6 +18,7 @@ fn main() {
     loop {
         handler.read_line(&mut buffer).unwrap();
         let parsed = buffer.trim().split(":").collect::<Vec<&str>>();
+        // println!("{:?}", parsed);
         match transmitter.send((
             parsed[0].parse::<isize>().unwrap(),
             parsed[1].to_string(),

@@ -61,7 +61,7 @@ pub mod mechanic {
                 return;
             }
             while !self.floors.contains(&self.trajectory[0]) {
-                println!("Unavalable floor: {}", self.trajectory[0]);
+                println!("Unavailable floor: {}", self.trajectory[0]);
                 self.trajectory.swap_remove(0);
             }
             let target = self.trajectory[0];
