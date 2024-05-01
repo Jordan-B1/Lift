@@ -9,7 +9,7 @@ fn helper() {
     println!("This is a lift!");
     println!("Just call him and he will come bring you were you wanna go");
     println!("Call him ? Nothing easier just type: [LOCATION]:[CALLER]:[DESTINATION]");
-    println!("Example:\n\t28:thomas:5<-- will bring Thomas from the 28th floor to the 5th");
+    println!("Example:\n28:thomas:5  Will bring Thomas from the 28th floor to the 5th");
 }
 
 fn main() {
