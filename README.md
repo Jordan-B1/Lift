@@ -1,6 +1,6 @@
 # Lift
 
-A simple concurrent program that imitate an elevateor system.
+A simple concurrent program that imitate an elevateor system. This is an educational purpose project
 
 ## Description
 
